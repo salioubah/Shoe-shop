@@ -1,0 +1,25 @@
+.app-container {
+    margin: 40px;
+    display: flex;
+}
+
+.container-left {
+    display: flex;
+    flex-basis: 20%;
+    background-color: aqua;
+}
+
+.container-right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 80%;
+    background-color: beige;
+}
+
+.item {
+    flex-basis: 25%;
+    min-height: 250px;
+    margin: 10px;
+    background-color: brown;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.30), 0 13px 10px rgba(0, 0, 0, 0.22);
+}
