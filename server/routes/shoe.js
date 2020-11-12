@@ -9,10 +9,10 @@ router.get('/shoes', (req, res) => {
 	let page = parseInt(req.query.page || 0);
 	let pagesize = parseInt(req.query.pagesize || 10);
 	let filters = {};
-	filters.marque = req.query.marque ? { $in: req.query.marque.split(',') } : { $exists: true };
-	filters.couleur = req.query.couleur ? { $in: req.query.marque.split(',') } : { $exists: true };
-	filters.type = req.query.type ? { $in: req.query.marque.split(',') } : { $exists: true };
-	filters.matiere = req.query.matiere ? { $in: req.query.marque.split(',') } : { $exists: true };
+	filters.marque = req.query.marque ? { $in: req.query.marque.split(',').map(val=> val.trim()) } : { $exists: true };
+	filters.couleur = req.query.couleur ? { $in: req.query.couleur.split(',').map(val=> val.trim()) } : { $exists: true };
+	filters.type = req.query.type ? { $in: req.query.type.split(',').map(val=> val.trim()) } : { $exists: true };
+	filters.matiere = req.query.matiere ? { $in: req.query.matiere.split(',').map(val=> val.trim()) } : { $exists: true };
 	filters.prixMin = req.query.prixMin ? req.query.prixMin : null;
 	filters.prixMax = req.query.prixMax ? req.query.prixMax : null;
 

@@ -1,10 +1,10 @@
-.filter-container {
+.shoeadder-container {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.filter-title {
+.shoeadder-title {
     display: flex;
     justify-content: center;
     font-weight: bold;

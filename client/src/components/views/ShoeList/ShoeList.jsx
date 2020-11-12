@@ -1,17 +1,16 @@
 import React from 'react';
-import ShoeCard from './ShoeCard';
-import './Home/Home.css';
+import ShoeCard from '../ShoeCard/ShoeCard';
 
 const ShoeList = (props) => {
     const { shoes } = props;
     console.log(shoes);
-    const listShoes = [1,2,3].map((shoe) =>
-        <div key={shoe} class="col-3">
+    const listShoes = shoes.map((shoe) =>
+        <div key={shoe._id} className="col-4">
             <ShoeCard shoe={shoe}/>
         </div>
     );
     return (
-        <div class="row">
+        <div className="row">
             {listShoes}
         </div>);
 }

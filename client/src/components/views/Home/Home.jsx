@@ -1,15 +1,15 @@
 import React from 'react';
-import Filter from '../Filter/Filter';
-import ShoeList from '../ShoeList';
+import Filter from './../Filter/Filter';
+import ShoeList from './../ShoeList/ShoeList';
+import ShoeAdder from './../ShoeAdder/ShoeAdder';
 import './Home.css';
-
-const ROUTE_SHOES = process.env.REACT_APP_SERVER_URL + "/shoes";
 
 const ShoeApp = (props) => {
     const [shoes, setShoes] = React.useState([]);
 
-    const getShoes = () => {
-        fetch(ROUTE_SHOES)
+    const getShoes = (filters) => {
+        let url = filters ? process.env.REACT_APP_SERVER_BASE_URL + '?' + filters : process.env.REACT_APP_SERVER_BASE_URL;
+        fetch(url)
             .then(response => response.json())
             .then(result => {
                 setShoes(result.data);
@@ -24,11 +24,12 @@ const ShoeApp = (props) => {
     }, [])
 
     return (
-        <div class="row">
-            <div class="col-3">
-                <Filter />
+        <div className="row app-container">
+            <div className="col-3">
+                <Filter getShoes={getShoes} />
+                <ShoeAdder />
             </div>
-            <div class="col-9">
+            <div className="col-9">
                 <ShoeList shoes={shoes} />
             </div>
 
